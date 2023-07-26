@@ -1,6 +1,6 @@
-import Card from './Card';
+import Card from './Card/Card';
 
-export default function Cards({characters}) {
+export default function Cards({characters, onClose}) {
    
    return (
       <div>
@@ -16,6 +16,7 @@ export default function Cards({characters}) {
                   gender = {gender}
                   origin = {origin.name}
                   image = {image}
+                  onClose={onClose}
                    />
                )
             })
