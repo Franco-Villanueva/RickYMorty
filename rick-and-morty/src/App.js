@@ -5,7 +5,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import {Route,Routes} from 'react-router-dom'
 import About from './components/About/About';
-import Detail from './Detail/Detail';
+import Detail from './components/Detail/Detail';
 
 function App() {
    const [characters,setCharacters]= useState([]);
