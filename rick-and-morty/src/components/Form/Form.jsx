@@ -1,5 +1,6 @@
 import { useState } from "react";
 import validation from "./validation";
+import styles from './Form.module.css';
 
 export default function Form({login}) {
 
@@ -24,16 +25,18 @@ export default function Form({login}) {
     }
 
     return (
-       <div>
+       <div className={styles.container}>
+        <div className={styles.form}>
            <form onSubmit={handleSubmit}>
-                <label  htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" value={userData.email} onChange={handleChange} />
-                <p>{errors.email}</p>
-                <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" value={userData.password} onChange={handleChange} />
-                <p>{errors.password}</p>
-                <button type="submit">Submit</button>
+                <label className={styles.labels} htmlFor="email">Email</label>
+                <input className={styles.inputs} type="email" id="email" name="email" value={userData.email} onChange={handleChange} placeholder="Ingresa un email" />
+                <p className={styles.errors}>{errors.email}</p>
+                <label className={styles.labels} htmlFor="password">Password</label>
+                <input className={styles.inputs} type="password" id="password" name="password" value={userData.password} onChange={handleChange} placeholder="Ingresar contraseña" />
+                <p className={styles.errors}>{errors.password}</p>
+                <button className={styles.btn} type="submit">Submit</button>
             </form>
+        </div>
        </div>
     );
    }

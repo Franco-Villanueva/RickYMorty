@@ -1,0 +1,70 @@
+.container {
+    background-image: url('../../imgs/login2.avif');/* Color de fondo para el componente */
+    /* Puedes ajustar otros estilos específicos para el componente aquí */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+  }
+
+.form{
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 24%;
+    width: 35%;
+    background-color: rgba(66, 109, 62, 0.5);
+    margin-top: 10%;
+    margin-right: 50%;
+    border-radius: 10px;
+    border: 2px solid green;
+    box-shadow: 0 0 10px 5px green;
+    backdrop-filter: blur(3px);
+}
+
+.btn {
+    color: greenyellow;
+    font-size: 18px;
+    text-transform: uppercase;
+    cursor: pointer;
+    padding: 5px;
+    text-decoration: none;
+    border: 2px solid green;
+    border-radius: 15px;
+    box-shadow: 0 0 10px 5px greenyellow;
+    background-color: rgba(36, 203, 21, 0.5);
+}
+.btn:hover {
+    color: white; /* Cambiar el color del texto cuando el cursor está sobre el botón */
+    text-shadow: 0 0 10px #ffcc00;
+    background-color:  rgba(203, 85, 21, 0.849);
+}
+
+.labels{
+    cursor: pointer;
+    display: block;
+    color: white;
+    text-shadow: 0 0 10px yellow;
+}
+
+.inputs{
+    border-radius: 15px;
+    color: green;
+    padding: 5px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+.errors{
+    color: red;
+    margin: 8px;
+    font-weight: bold;
+}
+
