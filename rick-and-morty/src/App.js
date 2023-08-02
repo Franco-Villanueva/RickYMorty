@@ -8,43 +8,69 @@ import About from './components/About/About';
 import Detail from './components/Detail/Detail';
 import { useLocation,useNavigate } from 'react-router-dom';
 import Form from './components/Form/Form';
+import Favorites from './components/Favorites/Favorites';
+import { useDispatch, useSelector } from 'react-redux';
+import { accessing } from './redux/actions';
 
 function App() {
 
    const location = useLocation()
    const navigate = useNavigate()
    const [characters,setCharacters]= useState([]);
-   const [access,setAccess]=useState(false);
-
-   const EMAIL = 'franco@gmail.com';
-   const PASSWORD = 'messi123';
+   const access = useSelector(state=>state.access)
+   const dispatch = useDispatch()
 
   
+   const EMAIL = 'franco@gmail.com';
+   const PASSWORD = 'messi123';
    function login(userData) {
       if (userData.password === PASSWORD && userData.email === EMAIL) {
-         setAccess(true);
+         dispatch(accessing())
          navigate('/home');
       }
    }
-
    function logOut(){
-      setAccess(false)
+      dispatch(accessing())
    }
-
    useEffect(() => {
    !access && navigate('/');
    }, [access, navigate]);
 
 
    function onSearch(id) {
+      if(id>826){
+         return alert('Max 126')
+      }
       axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-         if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-         } else {
-            window.alert('¡No hay personajes con este ID!');
-         }
+      if (data.name) {
+      // Verificar si el personaje ya está en el estado
+      const verifCharacter = characters.find((character) => character.id === data.id);
+      
+         if (!verifCharacter) { setCharacters((oldChars) => [...oldChars, data]);}
+
+         else {window.alert('¡El personaje ya fue agregado!');}
+      }
       });
    }
+
+   function random() {
+      let numRandom = Math.floor(Math.random() * (826)) + 1;
+      axios(`https://rickandmortyapi.com/api/character/${numRandom}`).then(({ data }) => {
+        if (data.name) {
+          // Verificar si el personaje ya está en el estado
+          const isCharacterAlreadyAdded = characters.find((character) => character.id === data.id);
+          
+          if (!isCharacterAlreadyAdded) {
+            setCharacters((oldChars) => [...oldChars, data]);
+          } else {
+            // Si ya está en el estado, realizar otra búsqueda para obtener un personaje diferente
+            random();
+          }
+        } else {
+          window.alert('¡No hay personajes con este ID!');
+        }
+      });
+    }
 
    function onClose(id){
       setCharacters(characters.filter(char =>char.id!==id))
@@ -52,9 +78,10 @@ function App() {
 
    return (
       <div className='App'>
-         {location.pathname !== '/' && <Nav onSearch={onSearch} logOut={logOut} /> }
+         {location.pathname !== '/' &&  location.pathname !== '/favorites' && <Nav onSearch={onSearch} logOut={logOut} random={random} /> }
         
         <Routes>
+         <Route path='/favorites' element={<Favorites />} />
          <Route path='/home' element={<Cards characters={characters} onClose={onClose} />} />
          <Route path='/about' element={<About />} />
          <Route path='/detail/:id' element={<Detail />} />

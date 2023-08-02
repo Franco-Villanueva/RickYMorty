@@ -1,0 +1,45 @@
+.title{
+    font-family: 'Arial', sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: #09ff00;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 0 0 8px rgba(0, 255, 8, 0.8)
+}
+
+.divContenedor{
+    margin-top: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.buttonvolver {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #00ff11;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Estilo del botón al pasar el mouse */
+  .buttonvolver:hover {
+    background-color: #b30000; /* Cambiar el color de fondo al pasar el mouse */
+  }
+  
+  /* Estilo del botón al hacer clic */
+  .buttonvolver:active {
+    background-color: #800000; /* Cambiar el color de fondo al hacer clic */
+  }
