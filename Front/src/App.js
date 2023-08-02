@@ -41,35 +41,33 @@ function App() {
       if(id>826){
          return alert('Max 126')
       }
-      axios(`https://rickandmortyapi.com/api/character/${id}`).then(({ data }) => {
-      if (data.name) {
+      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
+      if (data.character.name) {
       // Verificar si el personaje ya está en el estado
-      const verifCharacter = characters.find((character) => character.id === data.id);
+      const verifCharacter = characters.find((character) => character.id === data.character.id);
       
-         if (!verifCharacter) { setCharacters((oldChars) => [...oldChars, data]);}
+         if (!verifCharacter) { setCharacters((oldChars) => [...oldChars, data.character]);}
 
          else {window.alert('¡El personaje ya fue agregado!');}
       }
-      });
+      }).catch((err)=>alert(err.response.data.error))
    }
 
    function random() {
       let numRandom = Math.floor(Math.random() * (826)) + 1;
-      axios(`https://rickandmortyapi.com/api/character/${numRandom}`).then(({ data }) => {
-        if (data.name) {
+      axios(`http://localhost:3001/rickandmorty/character/${numRandom}`).then(({ data }) => {
+        if (data.character.name) {
           // Verificar si el personaje ya está en el estado
-          const isCharacterAlreadyAdded = characters.find((character) => character.id === data.id);
+          const isCharacterAlreadyAdded = characters.find((character) => character.id === data.character.id);
           
           if (!isCharacterAlreadyAdded) {
-            setCharacters((oldChars) => [...oldChars, data]);
+            setCharacters((oldChars) => [...oldChars, data.character]);
           } else {
             // Si ya está en el estado, realizar otra búsqueda para obtener un personaje diferente
             random();
           }
-        } else {
-          window.alert('¡No hay personajes con este ID!');
         }
-      });
+      }).catch((err)=>alert(err.response.data.error))
     }
 
    function onClose(id){

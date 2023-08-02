@@ -27,6 +27,7 @@ export default function Favorites() {
         <>
             <h1 className={styles.title}>My Favorites</h1>
             <select onChange={handleOrder}>
+                <option disabled selected hidden></option>
                 <option value="A">Ascendente</option>
                 <option value="D">Desendente</option>
             </select>

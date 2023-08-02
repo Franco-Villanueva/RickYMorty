@@ -12,7 +12,7 @@ export default function SearchBar({onSearch, random}) {
    return (
       <div className={styles.divBtns}>
          <input placeholder="Ingresa un ID" className={styles.inputSearch} value={id} onChange={handleChange} type='search' />
-         <button className={styles.btn} onClick={()=>onSearch(id)}>Agregar</button>
+         <button className={styles.btn} onClick={()=>onSearch(id)}>Add</button>
          <button className={styles.btn} onClick={()=>random()} type='search'>Random</button>
       </div>
    );
