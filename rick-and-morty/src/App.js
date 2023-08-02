@@ -13,9 +13,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { accessing } from './redux/actions';
 
 function App() {
-
    const location = useLocation()
    const navigate = useNavigate()
+   
    const [characters,setCharacters]= useState([]);
    const access = useSelector(state=>state.access)
    const dispatch = useDispatch()
