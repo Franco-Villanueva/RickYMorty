@@ -11,11 +11,11 @@ export default function Detail() {
     const {id} = useParams()
 
     useEffect(() => {
-        axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-           if (data.character.name) {
-              setCharacter(data.character);
+        axios(`http://localhost:3001/rickandmorty/detail/${id}`).then(({ data }) => {
+           if (data.name) {
+              setCharacter(data);
            } 
-        }).catch((err)=>alert(err.response.data.error))
+        }).catch((err)=>alert(err))
         return setCharacter({});
      }, [id]);
 

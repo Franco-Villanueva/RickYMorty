@@ -41,33 +41,33 @@ function App() {
       if(id>826){
          return alert('Max 126')
       }
-      axios(`http://localhost:3001/rickandmorty/character/${id}`).then(({ data }) => {
-      if (data.character.name) {
+      axios(`http://localhost:3001/rickandmorty/onsearch/${id}`).then(({ data }) => {
+      if (data.name) {
       // Verificar si el personaje ya está en el estado
-      const verifCharacter = characters.find((character) => character.id === data.character.id);
+      const verifCharacter = characters.find((character) => character.id === data.id);
       
-         if (!verifCharacter) { setCharacters((oldChars) => [...oldChars, data.character]);}
+         if (!verifCharacter) { setCharacters((oldChars) => [...oldChars, data]);}
 
          else {window.alert('¡El personaje ya fue agregado!');}
       }
-      }).catch((err)=>alert(err.response.data.error))
+      }).catch((err)=>alert(err))
    }
 
    function random() {
       let numRandom = Math.floor(Math.random() * (826)) + 1;
-      axios(`http://localhost:3001/rickandmorty/character/${numRandom}`).then(({ data }) => {
-        if (data.character.name) {
+      axios(`http://localhost:3001/rickandmorty/onsearch/${numRandom}`).then(({ data }) => {
+        if (data.name) {
           // Verificar si el personaje ya está en el estado
-          const isCharacterAlreadyAdded = characters.find((character) => character.id === data.character.id);
+          const isCharacterAlreadyAdded = characters.find((character) => character.id === data.id);
           
           if (!isCharacterAlreadyAdded) {
-            setCharacters((oldChars) => [...oldChars, data.character]);
+            setCharacters((oldChars) => [...oldChars, data]);
           } else {
             // Si ya está en el estado, realizar otra búsqueda para obtener un personaje diferente
             random();
           }
         }
-      }).catch((err)=>alert(err.response.data.error))
+      }).catch((err)=>alert(err)) 
     }
 
    function onClose(id){
