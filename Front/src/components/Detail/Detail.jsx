@@ -11,12 +11,12 @@ export default function Detail() {
     const {id} = useParams()
 
     useEffect(() => {
-        axios(`http://localhost:3001/rickandmorty/detail/${id}`).then(({ data }) => {
+        axios(`http://localhost:3001/rickandmorty/onsearch/${id}`).then(({ data }) => {
            if (data.name) {
               setCharacter(data);
            } 
         }).catch((err)=>alert(err))
-        return setCharacter({});
+        return ()=> setCharacter({});
      }, [id]);
 
  return (

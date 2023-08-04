@@ -16,19 +16,27 @@ const initialState = {
 // [NOTA]: investiga en la web cómo funciona el método sort.
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
+    // case ADD_FAV:
+    //   const copy = [...state.allCharacters, action.payload]
+    //   return {
+    //     ...state,
+    //     myFavorites: copy,
+    //     allCharacters:[...copy]
+    //   };
     case ADD_FAV:
-      const copy = [...state.allCharacters, action.payload]
-      return {
+      return { 
         ...state,
-        myFavorites: copy,
-        allCharacters:[...copy]
-      };
+        myFavorites: action.payload,
+        allCharacters: action.payload };
+    // case REMOVE_FAV:
+    //   return {
+    //     ...state,
+    //     myFavorites: state.myFavorites.filter((fav) => fav.id !== action.payload),
+    //     allCharacters: state.allCharacters.filter((fav) => fav.id !== action.payload),
+    //   };
     case REMOVE_FAV:
-      return {
-        ...state,
-        myFavorites: state.myFavorites.filter((fav) => fav.id !== action.payload),
-        allCharacters: state.allCharacters.filter((fav) => fav.id !== action.payload),
-      };
+      return { ...state, myFavorites: action.payload, allCharacters: action.payload };
+
     case FILTER:
       if(action.payload==='All'){return {...state,myFavorites:state.allCharacters}}
       return{

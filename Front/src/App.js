@@ -15,20 +15,30 @@ import { accessing } from './redux/actions';
 function App() {
    const location = useLocation()
    const navigate = useNavigate()
-   
-   const [characters,setCharacters]= useState([]);
-   const access = useSelector(state=>state.access)
    const dispatch = useDispatch()
 
-  
-   const EMAIL = 'franco@gmail.com';
-   const PASSWORD = 'messi123';
+   const [characters,setCharacters]= useState([]);
+   const access = useSelector(state=>state.access)
+   
+
    function login(userData) {
-      if (userData.password === PASSWORD && userData.email === EMAIL) {
-         dispatch(accessing())
-         navigate('/home');
-      }
+      const { email, password } = userData;
+      const URL = 'http://localhost:3001/rickandmorty/user/login';
+      axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+         const { access } = data;
+         console.log('hola paso axios')
+         if(access){
+            dispatch(accessing())
+         }
+         access && navigate('/home');
+      });
    }
+   // function login(userData) {
+   //    if (userData.password === PASSWORD && userData.email === EMAIL) {
+   //       
+   //       navigate('/home');
+   //    }
+   // }
    function logOut(){
       dispatch(accessing())
    }
