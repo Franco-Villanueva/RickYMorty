@@ -38,7 +38,7 @@ export default function Favorites() {
                 <option value="Genderless">Genderless</option>
                 <option value="unknown">unknown</option>
             </select>
-            <Link to='/home'><button className={styles.buttonvolver}>⇚ Volver</button></Link>
+            <Link to='/home'><button className={styles.buttonBack}>⇚ Volver</button></Link>
 
             <div className={styles.divContenedor}>
                 {

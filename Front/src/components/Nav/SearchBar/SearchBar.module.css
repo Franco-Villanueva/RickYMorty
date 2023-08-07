@@ -5,26 +5,52 @@
     
 }
 
-.inputSearch{
-    border-radius: 15px;
-    font-size: 17px;
-    border: 2px solid green;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.7);
+.inputSearch {
+    width: 240px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: black;
+    outline: none;
+    border: 1px solid silver;
+    border-radius: 30px;
+    margin-top: 5px;
+}
+
+.btnSearch {
+    position: absolute;
+    background: green;
+    width: 55px;
+    height: 55px;
+    line-height: 55px;
     text-align: center;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 0;
+    margin-left: 70px;
 }
 
 .btn{
     font-size: 17px;
-    border-radius: 15px;
+    border-radius: 30px;
     text-decoration: none;
     cursor: pointer;
-    padding: 5px 18px;
+    padding: 5px 15px;
     color: black;
     border: 1px;
+    background-color: white;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 }
 
-.btn:active {
-    transform: translateY(2px);
+.btnSearch:active {
+    background-color: greenyellow;
+}
 
-  }
+.btn:active{
+    transform: translateY(2px);
+}
+.btn:hover{
+    background-color: greenyellow;
+}

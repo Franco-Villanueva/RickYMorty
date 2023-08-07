@@ -5,9 +5,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    
 }
 
 .img{
+    margin: 10px 50px;
     height: 100px;
     width: 300px;
 }
@@ -25,7 +28,7 @@
 }
 
 .btnFav{
-    margin-right: 10px;
+    margin-right: 15px;
     font-size: 17px;
     border-radius: 15px;
     text-decoration: none;
@@ -38,21 +41,50 @@
     transition: background-color 0.3s; 
 }
 .btnFav:hover{
-    background-color: green;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    color: white;
+    background-color: #39FF14;
+    box-shadow: 0 0 20px rgba(0, 200, 0, 0.2), 0 0 20px rgba(0, 200, 0, 0.4);
 }
 
-.btn{
-    margin-right: 10px;
+.btnHome{
+    margin-right: 15px;
     font-size: 17px;
     border-radius: 15px;
     text-decoration: none;
     cursor: pointer;
-    padding: 5px 18px;
+    padding: 5px 15px;
     color: black;
     border: 1px;
+    background-color: white;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s; 
 }
+.btnHome:hover{
+    color: white;
+    background-color: #FF1493;
+    box-shadow: 0 0 20px rgba(255, 20, 147, 0.6), 0 0 20px rgba(255, 20, 147, 0.6);
+
+}
+
+.btnAbout{
+    margin-right: 15px;
+    font-size: 17px;
+    border-radius: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px 15px;
+    color: black;
+    border: 1px;
+    background-color: white;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s; 
+}
+.btnAbout:hover{
+    color: white;
+    background-color: #FFA500;
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.6), 0 0 20px rgba(255, 165, 0, 0.6);
+}
+
 
 .btnRed{
     font-size: 17px;
@@ -68,14 +100,23 @@
 }   
 
 .btnRed:hover{
+    color: white;
     background-color: red;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6), 0 0 20px rgba(255, 0, 0, 0.6);
+    border: none;
 }
 
 
 .btn:active {
     transform: translateY(2px);
 }
-
 .btnFav:active {
     transform: translateY(2px);
 }
+.btnHome:active {
+    transform: translateY(2px);
+}
+.btnAbout:active {
+    transform: translateY(2px);
+}
+

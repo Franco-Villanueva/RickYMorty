@@ -86,7 +86,7 @@ function App() {
 
    return (
       <div className='App'>
-         {location.pathname !== '/' &&  location.pathname !== '/favorites' && <Nav onSearch={onSearch} logOut={logOut} random={random} /> }
+         { !location.pathname.startsWith('/detail/') && location.pathname !== '/' &&  location.pathname !== '/favorites' && <Nav onSearch={onSearch} logOut={logOut} random={random} /> }
         
         <Routes>
          <Route path='/favorites' element={<Favorites />} />

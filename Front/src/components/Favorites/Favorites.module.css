@@ -16,7 +16,7 @@
     flex-wrap: wrap;
 }
 
-.buttonvolver {
+.buttonBack {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -34,12 +34,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
   
-  /* Estilo del botón al pasar el mouse */
-  .buttonvolver:hover {
+
+  .buttonBack:hover {
     background-color: #b30000; /* Cambiar el color de fondo al pasar el mouse */
-  }
-  
-  /* Estilo del botón al hacer clic */
-  .buttonvolver:active {
-    background-color: #800000; /* Cambiar el color de fondo al hacer clic */
   }

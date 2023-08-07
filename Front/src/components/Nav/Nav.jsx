@@ -12,9 +12,9 @@ export default function Nav({onSearch, logOut, random}){
           <Link to='/home'><img className={styles.img} src={imgLogo} alt="rickandmorty" /></Link>
 
           <div className={styles.divBtns}>
+              <Link to='/home'><button className={styles.btnHome} >Home</button></Link>
               <Link to='/favorites'><button className={styles.btnFav} >Favorites</button></Link>
-              <Link to='/about'><button className={styles.btn} >About</button></Link>
-              <Link to='/home'><button className={styles.btn} >Home</button></Link>
+              <Link to='/about'><button className={styles.btnAbout} >About</button></Link>
               <Link to='/'><button className={styles.btnRed} onClick={()=>logOut}>LogOut</button></Link>
           </div>
           <SearchBar onSearch={onSearch} random={random} />
