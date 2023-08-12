@@ -26,8 +26,8 @@ const routeLogin = require('./routes/routerLogin');
 const routeFav = require('./routes/routerFav');
 const server = express();
 const cors = require('cors')
-require('dotenv').config();
-const { PORT } = process.env;
+// require('dotenv').config();
+// const { PORT } = process.env;
 
 server.use(cors())
 server.use(express.json())
@@ -40,6 +40,8 @@ server.use('/rickandmorty/onsearch', routeOnsearch)
 server.use('/rickandmorty/user',routeLogin)
 server.use('/rickandmorty/favorites', routeFav);
 
-server.listen(PORT, () => {
-  console.log('Server raised in port: ' + PORT);
-});
+
+module.exports = {server};
+// server.listen(PORT, () => {
+//   console.log('Server raised in port: ' + PORT);
+// });

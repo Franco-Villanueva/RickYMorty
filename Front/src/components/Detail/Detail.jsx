@@ -3,6 +3,7 @@ import axios from "axios";
 import { useParams,Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import styles from './Detail.module.css'
+import imgRick from '../../imgs/image.png'
 import imgArma from '../../imgs/pngegg.png'
 import imgMorty from '../../imgs/pngegg1.png';
 import imgRickPepino from '../../imgs/pngegg3.png';
@@ -26,7 +27,7 @@ export default function Detail() {
 
  return (
    <div className={styles.divContainer}>
-      <img className={styles.flying} src="https://assets.stickpng.com/thumbs/58f37709a4fa116215a9240d.png" width={'200px'} height={'200px'} alt="" />
+      <img className={styles.flying} src={imgRick} width={'200px'} height={'200px'} alt="" />
       <img className={styles.flying} src={imgArma} width={'100px'} height={'100px'} alt="armaportal" />
       <img className={styles.flying} src={imgMorty} width={'150px'} height={'150px'} alt="morty" />
       <img className={styles.flying} src={imgRickPepino} width={'80px'} height={'130px'} alt="RickPepino" />
@@ -39,13 +40,13 @@ export default function Detail() {
             <h2 className={styles.h2}>{character.name}</h2>
             
             <div className={styles.divDecorative}></div>
-            <h3>Specie: {character.species} </h3>
+            <h3 className={styles.h3}>◉ Specie: {character.species} </h3>
             <div className={styles.divDecorative}></div>
-            <h3>Status: {character.status} </h3>
+            <h3 className={styles.h3}>◉ Status: {character.status} </h3>
             <div className={styles.divDecorative}></div>
-            <h3>Gender: {character.gender} </h3>
+            <h3 className={styles.h3}>◉ Gender: {character.gender} </h3>
             <div className={styles.divDecorative}></div>
-            <h3>Origin: {character.origin?.name} </h3>
+            <h3 className={styles.h3}>◉ Origin: {character.origin?.name} </h3>
          </div>
          <div >
          <img  className={styles.img} src={character.image} alt={character.name} />

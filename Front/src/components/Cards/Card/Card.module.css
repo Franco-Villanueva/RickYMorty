@@ -19,8 +19,8 @@
 }
 
 .img:hover{
-    border: 3px solid red;
-    transform: scale(1.1);
+    border: 3px solid #FF1493;
+    transform: scale(1.2);
 }
 
 .close{
